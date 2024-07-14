@@ -15,16 +15,29 @@ Rectangle {
     id: rectangle
     width: 1920
     height: 1080
+    clip: true
+    color: "#8b252836"
+    Image {
+        id: background
+        x: 0
+        y: 0
+        width: 1949
+        height: 1949
+        source: "../../../../../../Desktop/coctails/menu/1.jpg"
+        z: 0
 
-    color: "#252836"
+        DesignEffect {
+            layerBlurRadius: 18
+        }
+    }
 
     Text {
         id: selected_cocktail_name
-        x: 8
-        y: 66
-        width: 495
+        x: 20
+        y: 27
+        width: 1026
         height: 81
-        color: "#efa312"
+        color: "#e1e1e1"
         text: qsTr("AMF")
         font.pixelSize: 70
         horizontalAlignment: Text.AlignHCenter
@@ -33,66 +46,135 @@ Rectangle {
         font.family: "Verdana"
     }
 
-    Text {
-        id: selected_cocktail_description
-        x: 529
-        y: 66
-        width: 495
-        height: 90
-        color: "#efa312"
-        text: qsTr("A potent cocktail that includes vodka, rum, tequila, gin, blue curaçao, sweet and sour mix, and a splash of soda.")
-        font.pixelSize: 20
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        wrapMode: Text.WordWrap
-        z: 4
-        font.styleName: "Bold"
-        font.family: "Arial"
-    }
-
     Rectangle {
         id: frame1
-        x: 47
-        y: 162
-        width: 977
-        height: 522
+        x: 20
+        y: 107
+        width: 1026
+        height: 577
         color: "#00ffffff"
+        radius: 10
         clip: true
 
-        Image {
-            x: -50
-            y: -214
-            height: 1080
-            source: "../../../../../../Desktop/coctails/menu/1.jpg"
-            width: 1080
-            opacity: 0.5
-        }
-        Image {
-            id: main_image
-            x: 349
-            y: 0
-            source: "../../../../../../Desktop/coctails/menu/cocktails/amf.png"
-            height: 628
-            width: 628
+        Rectangle {
+            x: 0
+            y: 19
+
+            height: 558
+            visible: true
+            color: "#932b242c"
+            radius: 10
+            width: 351
+
+            Text {
+                id: ingredients_label
+                x: 8
+                y: 8
+
+                width: 326
+                height: 51
+                color: "#f1a411"
+                text: qsTr("Ingredients")
+                font.pixelSize: 30
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.styleName: "Bold"
+                font.hintingPreference: Font.PreferDefaultHinting
+                font.capitalization: Font.MixedCase
+                style: Text.Normal
+                scale: 1
+                styleColor: "#f1a411"
+            }
+
+            Flow {
+                id: flow2
+                x: 13
+                y: 73
+
+                width: 326
+                height: 432
+
+                Rectangle {
+                    border.width: 3
+
+                    Rectangle {
+                        x: 0
+                        y: 8
+                        width: 150
+                        height: 150
+                        color: "#FEF9E4"
+                        radius: 180
+                        border.color: "#fbe897"
+                        border.width: 2
+
+                        Image {
+                            id: ingredient_image
+                            x: 50
+                            y: 32
+                            source: "../../../../../../Desktop/coctails/menu/cocktails/apple_juice.png"
+                            width: 50
+                            height: 50
+                        }
+
+                        Text {
+                            id: ingredient_name
+                            x: 64
+                            y: 93
+                            width: 72
+                            height: 26
+                            text: qsTr("Liquid1")
+                            font.pixelSize: 18
+                        }
+
+                        Text {
+                            id: ingredient_amount
+                            x: 13
+                            y: 93
+                            width: 51
+                            height: 26
+                            color: "#fb7d8a"
+                            text: qsTr("12ML")
+                            font.pixelSize: 18
+                            horizontalAlignment: Text.AlignHCenter
+                        }
+                    }
+                }
+            }
         }
 
         Image {
             id: main_image1
-            x: 273
-            y: -6
-            width: 534
-            height: 534
+            x: 357
+            y: 19
+            width: 669
+            height: 570
             source: "../../../../../../Desktop/coctails/menu/cocktails/amf.png"
             z: 1
         }
+        Rectangle {
+            x: 368
+            y: 480
+            height: 89
+            color: "#d727212b"
+            width: 650
+            z: 4
+            Text {
+                id: selected_cocktail_description
+                x: 5
+                y: 1
 
-        Image {
-            id: main_image2
-            x: 0
-            y: -416
-            width: 1056
-            height: 1056
-            source: "../../../../../../Desktop/coctails/menu/cocktails/amf.png"
+                width: 629
+                height: 90
+                color: "#efa312"
+                text: qsTr("A potent cocktail that includes vodka, rum, tequila, gin, blue curaçao, sweet and sour mix, and a splash of soda.")
+                font.pixelSize: 20
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                wrapMode: Text.WordWrap
+
+                font.styleName: "Bold"
+                font.family: "Arial"
+            }
         }
     }
 
@@ -108,82 +190,11 @@ Rectangle {
 
         Image {
             id: cocktail_mini
-            x: 131
-            y: -78
-            height: 421
+            x: 114
+            y: -48
+            height: 532
             source: "../../../../../../Desktop/coctails/menu/cocktails/amf_mini.png"
-            width: 421
-        }
-
-        Flow {
-            id: flow2
-            x: 8
-            y: 452
-            width: 832
-            height: 158
-
-            Rectangle {
-                border.width: 3
-
-                Rectangle {
-                    x: 0
-                    y: 8
-                    width: 150
-                    height: 150
-                    color: "#FEF9E4"
-                    radius: 180
-                    border.color: "#fbe897"
-                    border.width: 2
-
-                    Image {
-                        id: ingredient_image
-                        x: 50
-                        y: 32
-                        source: "../../../../../../Desktop/coctails/menu/cocktails/apple_juice.png"
-                        width: 50
-                        height: 50
-                    }
-
-                    Text {
-                        id: ingredient_name
-                        x: 64
-                        y: 93
-                        width: 72
-                        height: 16
-                        text: qsTr("Liquid1")
-                        font.pixelSize: 18
-                    }
-
-                    Text {
-                        id: ingredient_amount
-                        x: 13
-                        y: 93
-                        width: 51
-                        height: 16
-                        color: "#fb7d8a"
-                        text: qsTr("12ML")
-                        font.pixelSize: 18
-                        horizontalAlignment: Text.AlignHCenter
-                    }
-                }
-            }
-        }
-
-        Text {
-            id: ingredients_label
-            x: 8
-            y: 424
-            width: 228
-            height: 33
-            color: "#f1a411"
-            text: qsTr("Ingredients:")
-            font.pixelSize: 25
-            font.styleName: "Bold Italic"
-            font.hintingPreference: Font.PreferDefaultHinting
-            font.capitalization: Font.MixedCase
-            style: Text.Normal
-            scale: 1
-            styleColor: "#f1a411"
+            width: 532
         }
 
         Rectangle {
@@ -275,8 +286,8 @@ Rectangle {
         }
 
         Rectangle {
-            x: 465
-            y: 25
+            x: 459
+            y: 59
 
             height: 204
             color: "#e71f1d2b"
@@ -285,14 +296,16 @@ Rectangle {
 
             Text {
                 id: history_label
-                x: 158
+                x: 8
                 y: 8
 
-                width: 60
+                width: 362
                 height: 33
                 color: "#f1a411"
                 text: qsTr("History")
                 font.pixelSize: 25
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 styleColor: "#f1a411"
                 style: Text.Normal
                 font.styleName: "Bold"
@@ -365,17 +378,17 @@ Rectangle {
 
         Rectangle {
             x: 8
-            y: 329
+            y: 353
 
-            height: 89
+            height: 112
             color: "#35091c"
-            width: 150
+            width: 195
             radius: 10
             border.color: "#00000000"
             Text {
                 id: calories_value
-                x: 0
-                y: 8
+                x: 27
+                y: 22
                 width: 142
                 height: 33
                 color: "#f1a411"
@@ -392,8 +405,8 @@ Rectangle {
 
             Text {
                 id: calories_label
-                x: 0
-                y: 39
+                x: 27
+                y: 53
                 width: 142
                 height: 33
                 color: "#5eff81"
@@ -410,14 +423,14 @@ Rectangle {
         }
 
         Button {
-            x: 540
-            y: 328
+            x: 483
+            y: 490
 
             font.letterSpacing: 1
             font.weight: Font.Bold
             font.pointSize: 30
             icon.width: 26
-            width: 300
+            width: 357
             height: 120
 
             scale: barmeButtonTapHandler.pressed ? 1.01 : 1
@@ -441,12 +454,6 @@ Rectangle {
                 border.color: "#00000000"
             }
 
-            DesignEffect {
-                effects: [
-                    DesignDropShadow {}
-                ]
-            }
-
             TapHandler {
                 id: barmeButtonTapHandler
                 acceptedButtons: Qt.LeftButton
@@ -454,8 +461,8 @@ Rectangle {
         }
 
         Rectangle {
-            x: 373
-            y: 330
+            x: 317
+            y: 490
 
             height: 116
             color: "#5d5395"
@@ -499,23 +506,66 @@ Rectangle {
                 font.styleName: "Bold"
             }
         }
+
+        Rectangle {
+            x: 8
+            y: 492
+            width: 303
+            height: 116
+            color: "#322b2e"
+            radius: 10
+            border.color: "#00000000"
+            Text {
+                id: text4
+                x: 8
+                y: 59
+                width: 287
+                height: 49
+                color: "#ea7c69"
+                text: qsTr("Price($)")
+                font.pixelSize: 40
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.styleName: "Bold"
+            }
+
+            DesignEffect {
+                effects: [
+                    DesignDropShadow {}
+                ]
+            }
+
+            Text {
+                id: text5
+                x: 13
+                y: 8
+                width: 282
+                height: 45
+                color: "#ffffff"
+                text: qsTr("12")
+                font.pixelSize: 40
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.styleName: "Bold"
+            }
+        }
     }
 
     Rectangle {
         id: frame
         x: 20
-        y: 737
+        y: 721
         width: 1880
 
-        height: 320
+        height: 336
         color: "#00ffffff"
 
         Flow {
             id: flow1
-            x: 28
-            y: -32
-            width: 1852
-            height: 352
+            x: 0
+            y: -16
+            width: 1880
+            height: 371
 
             Rectangle {
                 id: menuItem
@@ -528,6 +578,7 @@ Rectangle {
                 anchors.leftMargin: 5
                 scale: tapHandler.pressed ? 1.01 : 1
                 z: 0
+                opacity: 0.85
                 clip: false
 
                 Image {
